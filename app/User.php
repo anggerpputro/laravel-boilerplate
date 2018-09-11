@@ -7,9 +7,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+use App\Contracts\MainModelContract;
+use App\Traits\MainModelAbilities;
+
+class User extends Authenticatable implements MainModelContract
 {
     use HasApiTokens, Notifiable;
+    use MainModelAbilities;
 
     /**
      * The attributes that are mass assignable.
